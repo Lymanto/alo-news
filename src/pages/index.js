@@ -4,7 +4,8 @@ import LatestNews from '@/components/LatestNews';
 import Nav from '@/components/Nav';
 import GenerateRss from '@/lib/generateRss';
 import { useEffect, useState } from 'react';
-
+import { db } from '@/firebaseConfig';
+import { doc, getDoc } from 'firebase/firestore';
 export default function Home({ dataCategory }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -80,11 +81,16 @@ export default function Home({ dataCategory }) {
   );
 }
 export async function getStaticProps() {
-  const dataCategory = await fetch(`${process.env.VERCEL_URL}/api/category`)
-    .then((res) => res.json())
-    .then((dataCategory) => {
-      return dataCategory;
-    });
+  const docRef = doc(db, 'category', '5ncO9J0fujN0nQWTXv65');
+  const docSnap = await getDoc(docRef);
+  if (!docSnap.exists()) {
+    console.log('No such document!');
+    return {
+      notFound: true,
+    };
+  }
+  const dataCategory = docSnap.data().category;
+
   dataCategory.map(async (item) => {
     await GenerateRss({ category: item.category });
   });

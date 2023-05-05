@@ -1,6 +1,7 @@
 import { db } from '@/firebaseConfig';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { IncomingForm } from 'formidable';
+import { promises as fs } from 'fs';
 var mv = require('mv');
 
 export const config = {
@@ -31,7 +32,8 @@ export default async function handler(req, res) {
           new Date().getTime() + '-' + files.file.originalFilename;
         var uploadPath = '/uploads/';
         var newPath = `./public${uploadPath}${imageName}`;
-        mv(oldPath, newPath, function (err) {});
+        await fs.writeFile(newPath, files.file);
+        // mv(oldPath, newPath, function (err) {});
       }
       const docRef = await addDoc(collection(db, 'news'), {
         title: fields.title,

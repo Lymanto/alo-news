@@ -117,7 +117,7 @@ const Admin = () => {
         body.append('category', category);
         body.append('url', url);
         body.append('content', content);
-        const urlPost = `https://alo-news.vercel.app//api/news/post`;
+        const urlPost = `https://alo-news.vercel.app/api/news/post`;
         await fetch(urlPost, {
           method: 'POST',
           body,

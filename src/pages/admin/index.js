@@ -202,6 +202,7 @@ const Admin = () => {
               <input
                 ref={refUrl}
                 type="text"
+                value={url}
                 name="url"
                 id="url"
                 className="border-2 border-black p-2"

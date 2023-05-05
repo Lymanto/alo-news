@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     if (docSnap.exists()) {
       res.status(200).json(docSnap.data().category);
     } else {
-      res.status(500).json('Document does not exist');
+      res.status(500).json({ message: 'Document does not exist' });
     }
   } catch (error) {
     res.status(500).json(error);

@@ -2,26 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.btn-link {
+  @apply bg-transparent text-primary p-4 box-border hover:text-red;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.btn-primary {
+  @apply bg-black font-bold text-white py-2 px-4 box-border rounded-full border border-black capitalize;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.btn-secondary {
+  @apply bg-transparent font-normal text-primary py-2 px-4 box-border rounded-full border border-primary hover:text-white hover:bg-black hover:border-black capitalize;
+}
+.card {
+  @apply flex flex-col gap-2 w-[400px];
+}
+.card-latest {
+  @apply flex flex-col gap-2 w-[268px];
+}
+.divider {
+  @apply bg-secondary w-full h-[1px];
+}
+.divider:nth-last-child(1) {
+  @apply hidden;
+}
+.dot::after {
+  content: '';
+  @apply block w-[4px] h-[4px] bg-black rounded-full;
 }

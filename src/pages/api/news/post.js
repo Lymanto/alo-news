@@ -31,8 +31,9 @@ export default async function handler(req, res) {
         var imageName =
           new Date().getTime() + '-' + files.file.originalFilename;
         var uploadPath = '/uploads/';
-        var newPath = `./public${uploadPath}${imageName}`;
-        await fs.writeFile(newPath, files.file);
+        var newPath = `public${uploadPath}${imageName}`;
+        const image = await fs.readFile(oldPath);
+        await fs.writeFile(newPath, image);
         // mv(oldPath, newPath, function (err) {});
       }
       const docRef = await addDoc(collection(db, 'news'), {

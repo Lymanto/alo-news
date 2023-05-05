@@ -50,13 +50,13 @@ const formats = [
   'link',
 ];
 const Admin = () => {
-  const [title, setTitle] = useState(null);
-  const [category, setCategory] = useState(null);
-  const [url, setUrl] = useState(null);
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
+  const [url, setUrl] = useState('');
   const [image, setImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [errUrl, setErrUrl] = useState(false);
-  const [content, setContent] = useState(null);
+  const [content, setContent] = useState('');
 
   const [dataCategory, setDataCategory] = useState([]);
 
@@ -117,16 +117,16 @@ const Admin = () => {
         body.append('category', category);
         body.append('url', url);
         body.append('content', content);
-        const urlPost = `https://alo-news.vercel.app/api/news/post`;
+        const urlPost = `${process.env.VERCEL_URL}/api/news/post`;
         await fetch(urlPost, {
           method: 'POST',
           body,
         }).then(async (result) => {
           // 👇 modify the state to show the result
-          setTitle(null);
-          setCategory(null);
-          setUrl(null);
-          setContent(null);
+          setTitle('');
+          setCategory('');
+          setUrl('');
+          setContent('');
           setImage(null);
           setPreviewImage(null);
 
@@ -168,6 +168,7 @@ const Admin = () => {
                 type="text"
                 name="title"
                 id="title"
+                value={title}
                 className="border-2 border-black p-2"
                 onChange={(e) => setTitle(e.target.value)}
               />

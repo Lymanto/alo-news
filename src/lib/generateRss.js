@@ -20,6 +20,7 @@ export default async function GenerateRss({ category }) {
       }));
     });
   const data = await getData();
+  if (data.error) return { props: {} };
   const siteURL = process.env.VERCEL_URL;
   const date = new Date();
   const feed = new RSS({

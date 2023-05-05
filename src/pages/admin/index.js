@@ -105,7 +105,7 @@ const Admin = () => {
         where('url', '==', `/${category}/${url}`),
         limit(1)
       )
-    ).then((snapshot) => {
+    ).then(async (snapshot) => {
       if (snapshot.docs.length > 0) {
         setErrUrl(true);
         refUrl.current.classList.add('border-red');
@@ -117,8 +117,8 @@ const Admin = () => {
         body.append('category', category);
         body.append('url', url);
         body.append('content', content);
-        const urlPost = `${process.env.VERCEL_URL}/api/news/post`;
-        fetch(urlPost, {
+        const urlPost = `https://alo-news.vercel.app//api/news/post`;
+        await fetch(urlPost, {
           method: 'POST',
           body,
         }).then(async (result) => {

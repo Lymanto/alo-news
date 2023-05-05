@@ -118,7 +118,7 @@ const Admin = () => {
         body.append('url', url);
         body.append('content', content);
 
-        fetch('/api/news/post', {
+        fetch(`${process.env.VERCEL_URL}/api/news/post`, {
           method: 'POST',
           body,
         }).then(async (result) => {

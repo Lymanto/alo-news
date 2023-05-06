@@ -33,10 +33,10 @@ export default async function handler(req, res) {
           new Date().getTime() + '-' + files.file.originalFilename;
         var uploadPath = '/uploads/';
         var newPath = `public${uploadPath}${imageName}`;
-        const image = await fs.readFile(oldPath, {
-          encoding: 'utf8',
-        });
-        await fs.writeFileSync(newPath, image);
+        // const image = await fs.readFile(oldPath, {
+        //   encoding: 'utf8',
+        // });
+        await fs.writeFileSync(newPath, oldPath);
         // mv(oldPath, newPath, function (err) {});
       }
       const docRef = await addDoc(collection(db, 'news'), {

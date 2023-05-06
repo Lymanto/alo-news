@@ -2,7 +2,8 @@ import { db } from '@/firebaseConfig';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { IncomingForm } from 'formidable';
 import { promises as fs } from 'fs';
-var mv = require('mv');
+import { tmpdir } from 'os';
+// var mv = require('mv');
 
 export const config = {
   api: {
@@ -35,7 +36,7 @@ export default async function handler(req, res) {
         const image = await fs.readFile(oldPath, {
           encoding: 'utf8',
         });
-        await fs.writeFile(newPath, image);
+        await fs.writeFileSync(newPath, image);
         // mv(oldPath, newPath, function (err) {});
       }
       const docRef = await addDoc(collection(db, 'news'), {

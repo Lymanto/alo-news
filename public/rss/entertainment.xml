@@ -4,7 +4,7 @@
         <description><![CDATA[AloNews delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.]]></description>
         <link>http://github.com/dylang/node-rss</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 05 May 2023 18:20:16 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 06 May 2023 06:46:31 GMT</lastBuildDate>
         <copyright><![CDATA[All rights reserved 2023, AloNews]]></copyright>
         <item>
             <title><![CDATA[Jamie Foxx shares his gratitude ‘for all the love’ as continues recovery]]></title>
@@ -29,6 +29,14 @@
             <guid isPermaLink="false">http://localhost:3000/news/entertainment/queen-charlotte-spins-bridgerton</guid>
             <pubDate>Wed, 03 May 2023 17:00:00 GMT</pubDate>
             <enclosure url="http://localhost:3000/uploads/1683181556605-230323140730-01-queen-charlotte-a-bridgerton-story.webp" length="0" type="image/webp"/>
+        </item>
+        <item>
+            <title><![CDATA[asas]]></title>
+            <description><![CDATA[<p>aaaa</p>]]></description>
+            <link>http://localhost:3000/news/entertainment/asaasas</link>
+            <guid isPermaLink="false">http://localhost:3000/news/entertainment/asaasas</guid>
+            <pubDate>Fri, 05 May 2023 17:00:00 GMT</pubDate>
+            <enclosure url="http://localhost:3000/uploads/1683355581017-230503142054-20230504-star-wars-may-4th-timeline-illustration.webp" length="0" type="image/webp"/>
         </item>
         <item>
             <title><![CDATA[test1]]></title>

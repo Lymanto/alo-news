@@ -32,7 +32,9 @@ export default async function handler(req, res) {
           new Date().getTime() + '-' + files.file.originalFilename;
         var uploadPath = '/uploads/';
         var newPath = `public${uploadPath}${imageName}`;
-        const image = await fs.readFile(oldPath);
+        const image = await fs.readFile(oldPath, {
+          encoding: 'utf8',
+        });
         await fs.writeFile(newPath, image);
         // mv(oldPath, newPath, function (err) {});
       }
